@@ -38,6 +38,7 @@ def setClickPos():
 def confirm():
     try:
         delayTime = delayVar.get()
+        print(delayTime)
     except tk.TclError:
         delayEntry.delete(0, tk.END)
         delayEntry.insert(0, "Only accepts numbers")
@@ -77,15 +78,16 @@ def checkForReady():
             pydirectinput.moveTo(xpos, ypos)
             pydirectinput.click()
             pydirectinput.click()
-            #mouse.move(x, y, absolute=True, duration=0.2)
+            pydirectinput.moveTo(xpos+1, ypos+2)
+            pydirectinput.click()
             pydirectinput.click()
             breakout = True
         else:
             loopCounter+=1
             print ("false")
             print (loopCounter)
-            time.sleep(0.05)
-        if loopCounter >= 100:
+            time.sleep(0.025)
+        if loopCounter >= 200:
             break
             #second condition to end the loop (basically a timer for 5 seconds)
     
